@@ -2,6 +2,15 @@
 
 All SQL is in `supabase/migrations/`. Apply the files **in order** using the Supabase SQL editor (or the Supabase CLI with `supabase db push`).
 
+## Current state (verified 2026-11-24)
+
+- A Supabase Free project (`qhralhadotfyqugssbsg`, region `sin1`) was provisioned through the Vercel Marketplace integration and connected to the Vercel project.
+- All three migrations were applied: 10 tables and 19 RLS policies; storage bucket `portfolio-images` created.
+- Verified content was seeded: 2 published projects, 27 skills, 1 education record, 2 experience records.
+- One administrator (`yoganathapranashakti@gmail.com`) was provisioned. The generated password is stored locally in `docs/admin-credentials.txt` (gitignored) — rotate it in Supabase Auth if desired.
+- RLS was verified against the live project: anonymous users can read only published content, can insert contact messages but cannot read them (not even via `RETURNING`), and administrators can read/manage everything.
+- Local helper scripts: `node scripts/apply-migrations.mjs`, `node scripts/seed-content.mjs`, `node scripts/provision-admin.mjs`, `node scripts/verify-rls.mjs`. They read credentials from `.env.local`.
+
 ## 1. Create the project
 
 1. Create a free Supabase project.

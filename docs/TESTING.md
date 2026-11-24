@@ -1,5 +1,15 @@
 # Testing documentation
 
+## Production verification (2026-11-24)
+
+- Live URL: https://yoganatha-portfolio.vercel.app — canonical and OG URLs point to it.
+- Contact form submitted from the live site; the message was stored in Supabase and appeared in the admin inbox.
+- Admin sign-in with the provisioned account succeeded; dashboard showed 2 projects, 1 unread message.
+- Message actions verified: mark-as-read and delete both worked on the live admin page.
+- Image upload verified through the admin project form (file uploaded to `portfolio-images`, public URL written to the field); the test object was deleted afterwards.
+- RLS verified through PostgREST: anon `SELECT contact_messages` → 0 rows; anon `INSERT` → 201; anon still cannot `SELECT` inserted rows, including via `RETURNING` (42501); anon sees only 2 published projects; admin sees all messages.
+- Supabase Storage: public read works; admin upload works; service-role cleanup works.
+
 ## Automated checks
 
 ```bash
