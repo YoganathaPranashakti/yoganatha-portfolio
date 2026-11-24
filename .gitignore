@@ -1,0 +1,17 @@
+node_modules/
+.next/
+out/
+build/
+dist/
+.env
+.env.local
+.env.*.local
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+*.log
+.vercel
+coverage/
+
+# Unrelated project that happens to live in this workspace
+gods-eye-view/

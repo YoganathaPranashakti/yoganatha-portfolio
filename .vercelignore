@@ -1,0 +1,8 @@
+node_modules
+.next
+.git
+gods-eye-view
+*.tsbuildinfo
+.env
+.env.local
+.env.*.local
