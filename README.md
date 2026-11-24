@@ -4,6 +4,8 @@ A distinctive, futuristic personal portfolio and content-managed admin dashboard
 
 The site is designed to be **honest by default**: public content is sourced from the owner's PRD and verified public GitHub repositories. Anything that cannot be verified is left unpublished rather than invented. See [`docs/AUDIT.md`](docs/AUDIT.md) and the owner confirmation list below.
 
+**Live:** https://yoganatha-portfolio.vercel.app · **Source:** https://github.com/YoganathaPranashakti/yoganatha-portfolio
+
 ## Stack
 
 | Layer | Technology |

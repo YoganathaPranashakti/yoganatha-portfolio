@@ -2,7 +2,17 @@
 
 Target: **GitHub → Vercel Free → Supabase Free**, aiming for Rp0 infrastructure cost.
 
-No remote repository was created, pushed to, or deployed during implementation.
+## Current deployment (verified)
+
+- Source: https://github.com/YoganathaPranashakti/yoganatha-portfolio (branch `main`)
+- Production: https://yoganatha-portfolio.vercel.app
+- Vercel project: `shawnel/yoganatha-portfolio`, framework preset Next.js
+- `NEXT_PUBLIC_SITE_URL` is set in Vercel to the production URL; canonical and OG URLs were verified on the live site.
+- The older `personal` Vercel project (Hello World site) was left untouched.
+
+Two dashboard-side follow-ups remain because the CLI credentials lacked scopes:
+1. Vercel could not auto-connect the GitHub repository from the CLI. Connect it in Vercel → Project Settings → Git to enable push-to-deploy.
+2. The GitHub Actions file is stored as [`ci-workflow.yml`](ci-workflow.yml). Copy it to `.github/workflows/ci.yml` after granting the GitHub CLI token `workflow` scope (`gh auth refresh -s workflow`).
 
 ## 1. GitHub
 
