@@ -15,3 +15,7 @@ coverage/
 
 # Unrelated project that happens to live in this workspace
 gods-eye-view/
+docs/admin-credentials.txt
+
+.vercel
+.env*

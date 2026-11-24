@@ -11,7 +11,7 @@ import {
   fallbackSkills,
   fallbackTestimonials,
 } from "@/lib/data/fallback";
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 import type {
   Certification,
   Education,
@@ -35,7 +35,7 @@ function nullableStr(value: unknown): string | null {
 }
 
 async function selectPublished<T>(table: string): Promise<T[] | null> {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   if (!supabase) return null;
   try {
     const { data, error } = await supabase
@@ -89,7 +89,7 @@ export const getFeaturedProjects = cache(async (): Promise<Project[]> => {
 
 export const getProjectBySlug = cache(async (slug: string): Promise<Project | null> => {
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     if (supabase) {
       const { data, error } = await supabase
         .from("projects")
@@ -170,7 +170,7 @@ export const getCertifications = cache(async (): Promise<Certification[]> => {
 });
 
 export const getTestimonials = cache(async (): Promise<Testimonial[]> => {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   if (!supabase) return fallbackTestimonials;
   try {
     const { data, error } = await supabase
@@ -194,7 +194,7 @@ export const getTestimonials = cache(async (): Promise<Testimonial[]> => {
 });
 
 export const getProfile = cache(async (): Promise<Profile> => {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   if (!supabase) return fallbackProfile;
   try {
     const { data, error } = await supabase
